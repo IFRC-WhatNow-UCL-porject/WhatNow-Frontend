@@ -29,12 +29,15 @@ const CustomCard = ({ title, description, reach, detailText, names }) => {
     }
   };
 
-  const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
+    const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
     const [currentName, setCurrentName] = useState('');
     const [currentDescription, setCurrentDescription] = useState('');
     const [currentValue, setCurrentValue] = useState(0);
     const [alertOpen, setAlertOpen] = useState(false);
     const [alertMessage, setAlertMessage] = useState('');
+
+    const [currentNameError, setCurrentNameError] = useState(false);
+    const [currentDescriptionError, setCurrentDescriptionError] = useState(false);
 
     React.useEffect(() => {
       setCurrentName(title);
@@ -57,10 +60,20 @@ const CustomCard = ({ title, description, reach, detailText, names }) => {
     }
 
     const handleNameChange = (e) => {
+        if (e.target.value === '') {
+            setCurrentNameError(true);
+        } else {
+            setCurrentNameError(false);
+        }
         setCurrentName(e.target.value);
     }
 
     const handleDescriptionChange = (e) => {
+        if (e.target.value === '') {
+            setCurrentDescriptionError(true);
+        } else {
+            setCurrentDescriptionError(false);
+        }
         setCurrentDescription(e.target.value);
     }
   
@@ -159,7 +172,15 @@ const CustomCard = ({ title, description, reach, detailText, names }) => {
             </DialogContent>
             <DialogActions>
                 <Button variant="contained" color="primary" onClick={handleCloseEditDialog} sx={{ marginRight: 1, fontWeight: 'bold' }}>CANCLE</Button>
-                <Button variant="contained" color="secondary" onClick={handleEditSubmit} sx={{ marginRight: 1, fontWeight: 'bold' }} >SUBMIT</Button>
+                <Button
+                    variant="contained"
+                    color="secondary"
+                    onClick={handleEditSubmit}
+                    sx={{ marginRight: 1, fontWeight: 'bold' }}
+                    disabled={currentNameError || currentDescriptionError || currentName === '' || currentDescription === '' || (currentName === title && currentDescription === description && currentValue === reach)}
+                >
+                    SUBMIT
+                </Button>
             </DialogActions>
             <Collapse in={alertOpen}>
                 <Alert severity="warning" onClose={() => setAlertOpen(false)}>

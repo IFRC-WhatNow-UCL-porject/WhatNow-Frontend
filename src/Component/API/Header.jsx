@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Paper, Typography, Grid, Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField, Collapse, Alert } from '@mui/material';
+import { Paper, Typography, Grid, Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField, Collapse, Alert, FormHelperText } from '@mui/material';
 
 import { get_apis, add_api } from '../../store/features/api_user.slice';
 
@@ -32,6 +32,9 @@ const ApiHeader = () => {
     const [alertOpen, setAlertOpen] = useState(false);
     const [alertMessage, setAlertMessage] = useState('');
 
+    const [nameError, setNameError] = useState(false);
+    const [descriptionError, setDescriptionError] = useState(false);
+
     const handleOpenAddDialog = () => {
         setName('');
         setDescription('');
@@ -46,10 +49,20 @@ const ApiHeader = () => {
     }
 
     const handleNameChange = (e) => {
+        if (e.target.value === '') {
+            setNameError(true);
+        } else {
+            setNameError(false);
+        }
         setName(e.target.value);
     }
 
     const handleDescriptionChange = (e) => {
+        if (e.target.value === '') {
+            setDescriptionError(true);
+        } else {
+            setDescriptionError(false);
+        }
         setDescription(e.target.value);
     }
   
@@ -143,6 +156,9 @@ const ApiHeader = () => {
             <DialogContent>
                 <Typography variant="subtitle1" sx={{ marginTop: 2 }}>Name</Typography>
                 <TextField value={name} onChange={(e) => handleNameChange(e)} fullWidth margin="dense" />
+                <FormHelperText style={{ fontSize: '1rem', color: nameError ? 'red' : 'inherit' }}>
+                    {nameError ? 'please enter a name' : ''}
+                </FormHelperText>
                 <Typography variant="subtitle1" sx={{ marginTop: 2 }}>Description</Typography>
                 <TextField
                     value={description}
@@ -154,6 +170,9 @@ const ApiHeader = () => {
                     maxRows={6} // max rows
                     InputProps={{ style: { resize: 'both' } }} // resize both
                 />
+                <FormHelperText style={{ fontSize: '1rem', color: descriptionError ? 'red' : 'inherit' }}>
+                    {descriptionError ? 'please enter description' : ''}
+                </FormHelperText>
                 <Typography variant="subtitle1" sx={{ marginTop: 2 }}>Number of estimated users</Typography>
                 <TextField
                     type="number"
@@ -165,7 +184,15 @@ const ApiHeader = () => {
             </DialogContent>
             <DialogActions>
                 <Button variant="contained" color="primary" onClick={handleCloseAddDialog} sx={{ marginRight: 1, fontWeight: 'bold' }}>CANCLE</Button>
-                <Button variant="contained" color="secondary" onClick={handleAddSubmit} sx={{ marginRight: 1, fontWeight: 'bold' }} >SUBMIT</Button>
+                <Button
+                    variant="contained"
+                    color="secondary"
+                    onClick={handleAddSubmit}
+                    sx={{ marginRight: 1, fontWeight: 'bold' }}
+                    disabled={nameError || descriptionError || name === '' || description === ''}
+                >
+                    SUBMIT
+                </Button>
             </DialogActions>
             <Collapse in={alertOpen}>
                 <Alert severity="warning" onClose={() => setAlertOpen(false)}>
