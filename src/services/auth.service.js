@@ -23,7 +23,7 @@ axios.interceptors.response.use(
   (error) => {
     
     if (error.response && error.response.status === 401) {
-      window.location.href = "/";
+      window.location.href = "/login";
       localStorage.clear();
       localStorage.setItem("error", JSON.stringify(error.response));
     } else if (error.response && error.response.status === 500) {
