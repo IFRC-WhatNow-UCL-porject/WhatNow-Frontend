@@ -31,7 +31,7 @@ const api_user_dashboard = {
 };
 
 const reviewer_dashboard = {
-  'MY APPS': '/api_user/my_apps'
+  'MY APPS': '/reviewer/my_apps'
 };
 
 const gdpc_admin_dashboard = {
