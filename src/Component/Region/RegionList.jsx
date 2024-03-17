@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Paper, Table, TableBody, TableCell, TableHead, TableRow, Button, Box, Typography, Dialog, DialogActions, DialogTitle, DialogContent, TextField, Alert, Collapse  } from '@mui/material';
+import { Paper, Table, TableBody, TableCell, TableHead, TableRow, Button, Box, Typography, Dialog, DialogActions, DialogTitle, DialogContent, TextField, Alert, Collapse, FormHelperText } from '@mui/material';
 
 import { useDispatch } from "react-redux";
 
@@ -26,6 +26,8 @@ const RegionTable = ({regionList, selectedSociety, selectedLanguage}) => {
   const [uuid, setUuid] = useState('');
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
+  const [nameError, setNameError] = useState(false);
+  const [descriptionError, setDescriptionError] = useState(false);
 
   const handleOpenEditDialog = (uuid) => {
     setAlertOpen(false);
@@ -33,6 +35,8 @@ const RegionTable = ({regionList, selectedSociety, selectedLanguage}) => {
     setName(regionList.find(region => region.uuid === uuid).region_name);
     setDescription(regionList.find(region => region.uuid === uuid).description);
     setUuid(uuid);
+    setNameError(false);
+    setDescriptionError(false);
     setisEditDialogOpen(true);
   };
 
@@ -45,6 +49,8 @@ const RegionTable = ({regionList, selectedSociety, selectedLanguage}) => {
     setAlertMessage('Alert');
     setName('');
     setDescription('');
+    setNameError(false);
+    setDescriptionError(false);
     setisAddDialogOpen(true);
   };
 
@@ -54,11 +60,21 @@ const RegionTable = ({regionList, selectedSociety, selectedLanguage}) => {
 
   const handleNameChange = (e) => {
     setAlertOpen(false);
+    if (e.target.value === '') {
+      setNameError(true);
+    } else {
+      setNameError(false);
+    }
     setName(e.target.value);
   };
 
   const handleDescriptionChange = (e) => {
     setAlertOpen(false);
+    if (e.target.value === '') {
+      setDescriptionError(true);
+    } else {
+      setDescriptionError(false);
+    }
     setDescription(e.target.value);
   };
 
@@ -219,6 +235,9 @@ const RegionTable = ({regionList, selectedSociety, selectedLanguage}) => {
             <DialogContent>
                 <Typography variant="subtitle1" sx={{ marginTop: 2 }}>Region Name</Typography>
                 <TextField value={name} onChange={(e) => handleNameChange(e)} fullWidth margin="dense" />
+                <FormHelperText style={{ fontSize: '1rem', color: nameError ? 'red' : 'inherit' }}>
+                    {nameError ? 'please enter a name' : ''}
+                </FormHelperText>
                 <Typography variant="subtitle1" sx={{ marginTop: 2 }}>Description</Typography>
                 <TextField
                     value={description}
@@ -230,10 +249,21 @@ const RegionTable = ({regionList, selectedSociety, selectedLanguage}) => {
                     maxRows={6} // max rows
                     InputProps={{ style: { resize: 'both' } }} // resize both
                 />
+                <FormHelperText style={{ fontSize: '1rem', color: descriptionError ? 'red' : 'inherit' }}>
+                    {descriptionError ? 'please enter description' : ''}
+                </FormHelperText>
             </DialogContent>
             <DialogActions>
                 <Button variant="contained" color="primary" onClick={handleCloseEditDialog} sx={{ marginRight: 1, fontWeight: 'bold' }}>CANCLE</Button>
-                <Button variant="contained" color="secondary" onClick={handleEditSubmit} sx={{ marginRight: 1, fontWeight: 'bold' }} >SUBMIT</Button>
+                <Button 
+                    variant="contained" 
+                    color="secondary" 
+                    onClick={handleEditSubmit} 
+                    sx={{ marginRight: 1, fontWeight: 'bold' }}
+                    disabled={name === '' || description === '' || nameError || descriptionError}
+                >
+                    SUBMIT
+                </Button>
             </DialogActions>
             <Collapse in={alertOpen}>
                 <Alert severity="warning" onClose={() => setAlertOpen(false)}>
@@ -246,6 +276,9 @@ const RegionTable = ({regionList, selectedSociety, selectedLanguage}) => {
             <DialogContent>
                 <Typography variant="subtitle1" sx={{ marginTop: 2 }}>Region Name</Typography>
                 <TextField value={name} onChange={(e) => handleNameChange(e)} fullWidth margin="dense" />
+                <FormHelperText style={{ fontSize: '1rem', color: nameError ? 'red' : 'inherit' }}>
+                    {nameError ? 'please enter a name' : ''}
+                </FormHelperText>
                 <Typography variant="subtitle1" sx={{ marginTop: 2 }}>Description</Typography>
                 <TextField
                     value={description}
@@ -257,10 +290,21 @@ const RegionTable = ({regionList, selectedSociety, selectedLanguage}) => {
                     maxRows={6} // max rows
                     InputProps={{ style: { resize: 'both' } }} // resize both
                 />
+                <FormHelperText style={{ fontSize: '1rem', color: descriptionError ? 'red' : 'inherit' }}>
+                    {descriptionError ? 'please enter description' : ''}
+                </FormHelperText>
             </DialogContent>
             <DialogActions>
                 <Button variant="contained" color="primary" onClick={handleCloseAddDialog} sx={{ marginRight: 1, fontWeight: 'bold' }}>CANCLE</Button>
-                <Button variant="contained" color="secondary" onClick={handleAddSubmit} sx={{ marginRight: 1, fontWeight: 'bold' }} >SUBMIT</Button>
+                <Button 
+                    variant="contained" 
+                    color="secondary" 
+                    onClick={handleAddSubmit} 
+                    sx={{ marginRight: 1, fontWeight: 'bold' }}
+                    disabled={name === '' || description === '' || nameError || descriptionError}
+                >
+                    SUBMIT
+                </Button>
             </DialogActions>
             <Collapse in={alertOpen}>
                 <Alert severity="warning" onClose={() => setAlertOpen(false)}>
