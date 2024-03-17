@@ -195,30 +195,36 @@ const Navbar = (props) => {
             </Box>
             <Box display="flex" alignItems="center">
                 <MenuTab handleMouseEnter={handleMouseEnter_doc} handleMouseLeave={handleMouseLeave_doc} hover={menuOpen_doc} style={{ marginLeft: '50px', marginRight: '10px' }} text='Learn More' />
-                <Button
-                  disableRipple
-                  aria-controls="customized-menu"
-                  aria-haspopup="true"
-                  onClick={() => window.location.href = '/whatnow_messages'}
-                  sx={{
-                    marginLeft: '50px',
-                    color: 'black',
-                    fontSize: '1.3rem',
-                    fontWeight: 'bold',
-                    textDecoration: 'none',
-                    textDecorationThickness: '4px',
-                    textUnderlineOffset: '5px',
-                    textTransform: 'none',
-                    '&:hover': {
-                      textDecoration: 'underline',
-                      textDecorationColor: 'red',
+                {
+                  localStorage.getItem('access_token')
+                  ?
+                  <Button
+                    disableRipple
+                    aria-controls="customized-menu"
+                    aria-haspopup="true"
+                    onClick={() => window.location.href = '/whatnow_messages'}
+                    sx={{
+                      marginLeft: '50px',
+                      color: 'black',
+                      fontSize: '1.3rem',
+                      fontWeight: 'bold',
+                      textDecoration: 'none',
                       textDecorationThickness: '4px',
-                      textUnderlineOffset: '5px'
-                    },
-                  }}
-                >
-                  Whatnow Messages
-                </Button>
+                      textUnderlineOffset: '5px',
+                      textTransform: 'none',
+                      '&:hover': {
+                        textDecoration: 'underline',
+                        textDecorationColor: 'red',
+                        textDecorationThickness: '4px',
+                        textUnderlineOffset: '5px'
+                      },
+                    }}
+                  >
+                    Whatnow Messages
+                  </Button>
+                  :
+                  null
+                }
                 {
                   localStorage.getItem('access_token')
                   ?
