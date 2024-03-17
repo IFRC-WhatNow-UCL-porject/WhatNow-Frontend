@@ -1,0 +1,125 @@
+[
+{
+    "data": {
+        "identifier": "urn:oid:2.49.1.174.2018.524",
+        "sender": "The_Americian_Red_Cross",
+        "sent": "2018-01-29T04:37:49+00:00",
+        "status": "Actual",
+        "msg_type": "Alert",
+        "scope": "Public",
+        "info": {
+            "language": "en",
+            "category": "Geo",
+            "event": "Extreme Cold Warning",
+            "urgency": "Immediate",
+            "severity": "Extreme",
+            "certainty": "Immediate",
+            "effective": "2018-01-29T03:00:00+00:00",
+            "onset": "2018-01-29T03:00:00+00:00",
+            "expires": "2018-04-03T13:37:29+00:00",
+            "sender_name": "The American Red Cross",
+            "headline": "Weather Advisory# 3 FINAL as of 11 AM, Jan. 29, 2018For Tail-End of A Cold Front ",
+            "description": "Weather Advisory# 3 FINAL as of 11 AM, Jan. 29, 2018\nFor Tail-End of A Cold Front \n\nThe effect of the Tail-End of A Cold Front has weakened. Improved weather conditions will be experienced over Nome. However, isolated rain showers or thunderstorms, especially during the afternoon or evening, should be expected in these areas due to the west.\n\nWith this development, this is the final advisory for this weather system.",
+            "area": {
+                "area_desc": "Weather Advisory# 3 FINAL as of 11 AM, Jan. 29, 2018\nFor Tail-End of A Cold Front ",
+                "polygon": {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Polygon",
+                        "coordinates": [
+                            [
+                                [-165.5584716796875, 64.9188850328549],
+                                [-166.06933593749997, 64.81389502168176],
+                                [-166.28082275390625, 64.5212788590022],
+                                [-166.0528564453125, 64.3042040393387],
+                                [-165.02563476562497, 64.28514307507955],
+                                [-164.5916748046875, 64.42659403500944],
+                                [-164.5751953125, 64.74953235864658],
+                                [-164.94049072265625, 64.91306300771964],
+                                [-165.5584716796875, 64.9188850328549]
+                            ]
+                        ]
+                    }
+                }
+            }
+        },
+        "cap_url": "http://localhost/v1/alerts/cap12/2018-01-29/urn:oid:2.49.1.174/urn:oid:2.49.1.174.2018.524.xml",
+        "organisation": {
+            "country": "USA",
+            "name": "The American Red Cross",
+            "oid_code": "urn:oid:2.49.1.174"
+        }
+    }
+},
+{
+    "data": {
+        "id": "234",
+        "countryCode": "USA",
+        "eventType": "Extreme Cold",
+        "attribution": {
+            "name": "American Red Cross",
+            "countryCode": "USA",
+            "url": "http://www.redcross.org",
+            "translations": {
+                "en": {
+                    "languageCode": "en",
+                    "name": "International Federation of Red Cross and Red Crescent Societies",
+                    "attributionMessage": "Key Messages from International Federation of Red Cross and Red Crescent Societies"
+                }
+            }
+        },
+        "translations": {
+            "en": {
+                "id": "483",
+                "lang": "en",
+                "webUrl": "",
+                "title": "Key Messages for Extreme Cold",
+                "description": "These are actions to take to reduce risk and protect you and your household from extreme cold.",
+                "published": true,
+                "createdAt": "2017-02-17T17:38:40+00:00",
+                "stages": {
+                    "mitigation": [
+                        "Know your area's risks for extreme weather conditions",
+                        "Know your nearest points of medical support",
+                        "Prepare your home. Check on pipes and have safe heating sources.",
+                        "Prepare your vehicle with necessary emergency items and fuel"
+                    ],
+                    "seasonalForecast": [
+                        "Prepare your home. Check on pipes and have safe heating sources.",
+                        "Prepare your vehicle with necessary emergency items and fuel",
+                        "Stay hydrated with warm fluids",
+                        "Check on neighbors, friends, and those at risk"
+                    ],
+                    "warning": [
+                        "Protect your home. Check on pipes and use heating sources safely",
+                        "Stay hydrated with warm fluids",
+                        "Protect yourself with warm clothing and cover exposed skin",
+                        "Be aware and cautious of icy conditions, especially while driving",
+                        "Check on neighbors, friends, and those at risk"
+                    ],
+                    "watch": [
+                        "Protect your home. Check on pipes and use heating sources safely.",
+                        "Stay hydrated with warm fluids",
+                        "Protect yourself with warm clothing and cover exposed skin",
+                        "Be aware and cautious of icy conditions, especially while driving",
+                        "Check on neighbors, friends, and those at risk"
+                    ],
+                    "immediate": [
+                        "Protect your home. Check on pipes and use heating sources safely",
+                        "Stay hydrated with warm fluids",
+                        "Stay inside.",
+                        "Be aware and cautious of icy conditions, especially while driving",
+                        "Know and watch for signs of hypothermia and frostbite",
+                        "Check on neighbors, friends, and those at risk"
+                    ],
+                    "recover": [
+                        "Be aware and cautious of icy conditions, especially while driving",
+                        "Be aware of power outages",
+                        "Be aware of flooding caused by snow melting"
+                    ]
+                }
+            }
+        }
+    }
+}
+]
