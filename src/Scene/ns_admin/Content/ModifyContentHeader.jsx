@@ -1,7 +1,7 @@
 import React from 'react';
 import { Paper, Typography, Grid, Box, Button} from '@mui/material';
 
-const ContentHeader = ({submit, text}) => {
+const ContentHeader = ({submit, text, disabled}) => {
 
   return (
     <>
@@ -37,7 +37,7 @@ const ContentHeader = ({submit, text}) => {
                     <Grid item xs={12} md={6}>
                         <Grid container spacing={2} justifyContent="flex-end">
                             <Grid item xs={6} md={3}>
-                                <Button onClick={submit} variant="contained" color="secondary">Save Changes</Button>
+                                <Button onClick={submit} variant="contained" color="secondary" disabled={disabled}>Save Changes</Button>
                             </Grid>
                             <Grid item xs={6} md={3}>
                                 <Button onClick={() => {window.location.href = '/ns_admin/content'}} variant="contained" color="primary">Cancel</Button>

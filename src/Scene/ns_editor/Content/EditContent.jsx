@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Paper, TextField, Button, Box, Typography, Divider, Container } from '@mui/material';
+import { Paper, TextField, Button, Box, Typography, Divider, Container, FormHelperText } from '@mui/material';
 
 import Header from './ModifyContentHeader';
 
@@ -24,9 +24,22 @@ const DynamicInputComponent = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const validateURL = (url) => {
+    const pattern = new RegExp('^(https?:\\/\\/)?'+ 
+                               '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+
+                               '((\\d{1,3}\\.){3}\\d{1,3}))'+
+                               '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+
+                               '(\\?[;&a-z\\d%_.~+=-]*)?'+
+                               '(\\#[-a-z\\d_]*)?$','i');
+    return !!pattern.test(url);
+  };
+
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [url, setUrl] = useState('');
+  const [titleError, setTitleError] = useState(false);
+  const [descriptionError, setDescriptionError] = useState(false);
+  const [urlError, setUrlError] = useState(false);
 
   const [inputs, setInputs] = useState(Array.from({ length: Object.keys(messageTypes).length }, () => []));
   const [content_message, setContentMessage] = useState([]);
@@ -110,14 +123,29 @@ const DynamicInputComponent = () => {
 
 
   const handleTitleChange = (event) => {
+    if (event.target.value === '') {
+      setTitleError(false);
+    } else {
+      setTitleError(true);
+    }
     setTitle(event.target.value);
   };
 
   const handleDescrptionChange = (event) => {
+    if (event.target.value === '') {
+      setDescriptionError(false);
+    } else {
+      setDescriptionError(true);
+    }
     setDescription(event.target.value);
   };
 
   const handleUrlChange = (event) => {
+    if (validateURL(event.target.value)) {
+      setUrlError(false);
+    } else {
+      setUrlError(true);
+    }
     setUrl(event.target.value);
   };
 
@@ -151,7 +179,7 @@ const DynamicInputComponent = () => {
         if (response.payload.status) {
           dispatch(update_content_message(message_update_data)).then((response) => {
             if (response.payload.status) {
-              window.location.href = '/ns_editor/content';
+              window.location.href = '/gdpc_admin/content';
             }
           });
         }
@@ -165,22 +193,35 @@ const DynamicInputComponent = () => {
     <Container maxWidth={false} sx={{ minHeight: '100vh', width: 1500, paddingTop: 3 }}>
       <BreadNav path={['Home', 'Content', "Edit Content"]} />
       <div style={{ marginTop: '16px' }}></div>
-      <Header submit={handleSubmission} text={"Edit content"} />
+      <Header
+        submit={handleSubmission} 
+        text={"Edit content"} 
+        disabled={title === '' || description === '' || url === '' || titleError || descriptionError || urlError}
+      />
       <Paper sx={{ padding: 2, marginBottom: 5 }}>
         <Box sx={{ padding: 2 }}>
           <Typography variant="h3" >{Object.keys(input_labels)[0]}</Typography>
           <Typography variant="h6" sx={{ mb: 2, color: '#b3b3b3' }}>{input_labels[Object.keys(input_labels)[0]]}</Typography>
           <TextField value={title} onChange={(e) => handleTitleChange(e)} fullWidth />
+          <FormHelperText style={{ fontSize: '1rem', color: titleError ? 'red' : 'inherit' }}>
+              {titleError ? 'please enter a title' : ''}
+          </FormHelperText>
         </Box>
         <Box sx={{ padding: 2 }}>
           <Typography variant="h3" >{Object.keys(input_labels)[1]}</Typography>
           <Typography variant="h6" sx={{ mb: 2, color: '#b3b3b3' }}>{input_labels[Object.keys(input_labels)[1]]}</Typography>
           <TextField value={description} onChange={(e) => handleDescrptionChange(e)} fullWidth />
+          <FormHelperText style={{ fontSize: '1rem', color: descriptionError ? 'red' : 'inherit' }}>
+            {descriptionError ? 'please enter description' : ''}
+          </FormHelperText>
         </Box>
         <Box sx={{ padding: 2 }}>
           <Typography variant="h3" >{Object.keys(input_labels)[2]}</Typography>
           <Typography variant="h6" sx={{ mb: 2, color: '#b3b3b3' }}>{input_labels[Object.keys(input_labels)[2]]}</Typography>
           <TextField value={url} onChange={(e) => handleUrlChange(e)} fullWidth />
+          <FormHelperText style={{ fontSize: '1rem', color: urlError ? 'red' : 'inherit' }}>
+            {urlError ? 'please enter valid url. example: https://www.example.com' : ''}
+          </FormHelperText>
         </Box>
 
         {inputs.map((paperInputs, index) => (
