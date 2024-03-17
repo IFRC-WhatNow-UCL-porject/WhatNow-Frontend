@@ -206,7 +206,7 @@ const LanguageBlock = ({language, language_list, society}) => {
                     </Typography>
                 </Grid>
                 <Grid item>
-                    <Button variant="contained" color="secondary" sx={{ marginRight: 3, fontWeight: 'bold' }} onClick={handleOpenEditDialog}>
+                    <Button variant="contained" color="secondary" sx={{ marginRight: 3, fontWeight: 'bold' }} onClick={handleOpenEditDialog} disabled={!language}>
                         EDIT
                     </Button>
                     <Button variant="contained" color="primary" sx={{ marginRight: 2, fontWeight: 'bold' }} onClick={handleOpenAddDialog}>
