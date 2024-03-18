@@ -4,6 +4,8 @@ import { Paper, Typography, Divider, TextField, Select, MenuItem, Container } fr
 
 import TermHeader from '../../../Component/ManageTerms/Header';
 
+import BreadNav from '../../../Component/BreadNav';
+
 import { get_all_terms_versions, get_term_by_version } from '../../../store/features/gdpc_admin.slice';
 
 const CustomPaperComponent = () => {
@@ -79,6 +81,15 @@ const CustomPaperComponent = () => {
 
   return (
     <Container maxWidth="lg" sx={{ minHeight: '100vh' }} my={2} >
+        <BreadNav
+            path={
+                [
+                    { path: '/', name: 'Home' },
+                    { path: '/gdpc_admin/manage_terms', name: 'Manage Terms and Conditions' }
+                ]
+            }
+        />
+        <div style={{ marginTop: '16px' }}></div>
         <TermHeader text={text} latestVersion={latestVersion}/>
         <div style={{ marginTop: '16px' }}></div>
         <Paper style={{ padding: '20px' }}>

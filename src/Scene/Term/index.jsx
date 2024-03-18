@@ -24,6 +24,14 @@ const Term = () => {
 
   return (
     <Container maxWidth="lg" sx={{ minHeight: '100vh' }} my={2} >
+        <BreadNav
+          path={
+            [
+              { path: '/', name: 'Home' },
+              { path: '/terms_and_conditions', name: 'Terms and Conditions' }
+            ]
+          } 
+        />
         <div style={{ marginTop: '16px' }}></div>
         <Paper style={{ padding: '20px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>

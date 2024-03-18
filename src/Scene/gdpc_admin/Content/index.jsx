@@ -37,7 +37,14 @@ const Content = () => {
 
   return (
     <Container maxWidth={false} sx={{ minHeight: '100vh', width: 1500, paddingTop: 3 }}>
-      <BreadNav path={['Home', 'Whatnow Content']} />
+      <BreadNav
+        path={
+          [
+            { path: '/', name: 'Home' },
+            { path: '/gdpc_admin/content', name: 'Content' }
+          ]
+        }
+      />
       <div style={{ marginTop: '16px' }}></div>
       <ContentHeader userSociety={userSocietyList} >
         <div style={{ marginTop: '16px' }}></div>

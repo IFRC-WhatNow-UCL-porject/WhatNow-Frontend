@@ -34,7 +34,14 @@ const Profile = () => {
 
   return (
     <Container maxWidth="lg" sx={{ minHeight: '100vh' }} my={2} >
-        <BreadNav path={['Home', 'My Profile']} />
+        <BreadNav
+          path={
+            [
+              { path: '/', name: 'Home' },
+              { path: '/profile', name: 'Profile' }
+            ]
+          } 
+        />
         <div style={{ marginTop: '16px' }}></div>
         <Header>
           <div style={{ marginTop: '16px' }}></div>

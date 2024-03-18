@@ -2,18 +2,19 @@ import React from 'react';
 import { Breadcrumbs, Link, Typography } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 
-const BreadcrumbsNavigation = ({ path, isDisplay }) => {
+const BreadcrumbsNavigation = ({ path }) => {
 
   return (
-    <Breadcrumbs aria-label="breadcrumb" sx={{ display: isDisplay ? 'none' : '' }}>
+    <Breadcrumbs aria-label="breadcrumb">
       {path.map((crumb, index) => {
         const last = index === path.length - 1;
-        const to = `/${path.slice(index, index + 1).join('/')}`.toLowerCase();
+        const to = crumb.path;
+        const name = crumb.name;
 
         return last ? (
-          <Typography color="textPrimary" key={index}>{crumb}</Typography>
+          <Typography color="textPrimary" key={index}>{name}</Typography>
         ) : (
-          <Link component={RouterLink} to={to} key={index}>{crumb}</Link>
+          <Link component={RouterLink} to={to} key={index}>{name}</Link>
         );
       })}
     </Breadcrumbs>

@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { get_user_societies } from '../../../store/features/ns_admin.slice';
+import BreadNav from '../../../Component/BreadNav';
 
 import Header from '../../../Component/Region/Header';
 import RegionList from '../../../Component/Region/RegionList';
@@ -33,6 +34,15 @@ const Region = () => {
 
     return (
       <Container maxWidth={false} sx={{ minHeight: '100vh', width: 1500, paddingTop: 3 }}>
+        <BreadNav
+          path={
+            [
+              { path: '/', name: 'Home' },
+              { path: '/ns_editor/region', name: 'Region' }
+            ]
+          } 
+        />
+        <div style={{ marginTop: '16px' }}></div>
         <Header societyList={userSocietyList}>
           <div style={{ marginTop: '16px' }}></div>
           <RegionList/>

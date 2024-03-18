@@ -12,7 +12,15 @@ const AddProfile = () => {
 
   return (
     <Container maxWidth="lg" sx={{ minHeight: '100vh' }} my={2} >
-        <BreadNav path={['Home', 'My Profile']} />
+        <BreadNav
+          path={
+            [
+              { path: '/', name: 'Home' },
+              { path: '/gdpc_admin/manage_users', name: 'Manage Users' },
+              { path: '/gdpc_admin/manage_users/add_user', name: 'Add User' }
+            ]
+          }
+        />
         <div style={{ marginTop: '16px' }}></div>
         <Header>
           <div style={{ marginTop: '16px' }}></div>

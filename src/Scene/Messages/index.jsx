@@ -35,7 +35,14 @@ const Content = () => {
 
   return (
     <Container maxWidth={false} sx={{ minHeight: '100vh', width: 1500, paddingTop: 3 }}>
-      <BreadNav path={['Home', 'Whatnow Content']} />
+      <BreadNav
+        path={
+          [
+            { path: '/', name: 'Home' },
+            { path: '/whatnow_messages', name: 'WhatNow Messages' }
+          ]
+        } 
+      />
       <div style={{ marginTop: '16px' }}></div>
       <MessagesHeader society={societyList}>
         <div style={{ marginTop: '16px' }}></div>

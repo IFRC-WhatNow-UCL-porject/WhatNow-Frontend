@@ -10,7 +10,7 @@ import BreadNav from '../../../Component/BreadNav';
 
 import { get_audit_log, get_user_societies } from '../../../store/features/ns_admin.slice';
 
-const AuditLog = ({isShowBread=false}) => {
+const AuditLog = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -43,7 +43,14 @@ const AuditLog = ({isShowBread=false}) => {
 
   return (
     <Container maxWidth={false} sx={{ minHeight: '100vh', width: 1500, paddingTop: 3 }}>
-      <BreadNav path={['Home', 'Audit Log']} isDisplay={isShowBread}/>
+      <BreadNav
+        path={
+          [
+            { path: '/', name: 'Home' },
+            { path: '/gdpc_admin/auditlog', name: 'Audit Log' }
+          ]
+        }
+      />
       <div style={{ marginTop: '16px' }}></div>
       <AuditHeader societyList={userSocietyList}>
         <div style={{ marginTop: '16px' }}></div>

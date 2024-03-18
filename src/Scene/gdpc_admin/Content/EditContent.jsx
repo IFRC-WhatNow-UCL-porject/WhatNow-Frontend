@@ -191,7 +191,15 @@ const DynamicInputComponent = () => {
 
   return (
     <Container maxWidth={false} sx={{ minHeight: '100vh', width: 1500, paddingTop: 3 }}>
-      <BreadNav path={['Home', 'Content', "Edit Content"]} />
+      <BreadNav
+        path={
+          [
+            { path: '/', name: 'Home' },
+            { path: '/ns_editor/content', name: 'Content' },
+            { path: '/ns_editor/content/editcontent', name: 'Edit Content' }
+          ]
+        }
+      />
       <div style={{ marginTop: '16px' }}></div>
       <Header
         submit={handleSubmission} 

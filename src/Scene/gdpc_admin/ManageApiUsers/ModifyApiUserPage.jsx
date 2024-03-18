@@ -39,7 +39,15 @@ const ModifyProfile = () => {
 
   return (
     <Container maxWidth="lg" sx={{ minHeight: '100vh' }} my={2} >
-      <BreadNav path={['Home', 'My Profile']} />
+      <BreadNav
+        path={
+          [
+            { path: '/', name: 'Home' },
+            { path: '/gdpc_admin/manage_api_users', name: 'Manage API Users' },
+            { path: '/gdpc_admin/edit_api_user', name: 'Modify API User Profile' }
+          ]
+        }
+      />
       <div style={{ marginTop: '16px' }}></div>
       <Header user_id={user_id}>
         <div style={{ marginTop: '16px' }}></div>

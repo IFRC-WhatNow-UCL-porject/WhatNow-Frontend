@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import ApiHeader from '../../../Component/API/Header';
 import KeysGrid from '../../../Component/API/KeysGrid';
 
+import BreadNav from '../../../Component/BreadNav';
+
 import { get_apis_by_user_id } from '../../../store/features/api_user.slice';
 
 const ApiPage = () => {
@@ -30,6 +32,15 @@ const ApiPage = () => {
 
   return (
     <Container maxWidth={false} sx={{ minHeight: '100vh', width: 1500, paddingTop: 3 }}>
+        <BreadNav
+          path={
+            [
+              { path: '/', name: 'Home' },
+              { path: '/api_user/my_apps', name: 'My Apps' }
+            ]
+          } 
+        />
+        <div style={{ marginTop: '16px' }}></div>
         <ApiHeader />
         <KeysGrid apps={apis} />
     </Container>
