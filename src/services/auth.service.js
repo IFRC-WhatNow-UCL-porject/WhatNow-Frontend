@@ -1,4 +1,5 @@
 import axios from "axios";
+import BASE_URL from "./base";
 
 let token = null;
 
@@ -37,7 +38,7 @@ axios.interceptors.response.use(
   }
 );
 
-const API_URL = "http://localhost:5000/api/auth";
+const API_URL = BASE_URL + "/api/auth";
 
 const register = async (values) => {
   return axios.post(API_URL + "/register", values)

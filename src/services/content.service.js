@@ -1,4 +1,5 @@
 import axios from "axios";
+import BASE_URL from "./base";
 
 let token = null;
 
@@ -16,7 +17,7 @@ axios.interceptors.request.use(
   }
 );
 
-const API_URL = "http://localhost:5000/api/content";
+const API_URL = BASE_URL + "/api/content";
 
 const get_content = async (values) => {
     updateToken();
