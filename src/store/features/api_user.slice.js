@@ -57,6 +57,20 @@ export const delete_api = createAsyncThunk(
     }
   );
 
+export const get_apis_by_user_id = createAsyncThunk(
+    "ns_admin/get_apis_by_user_id",
+    async (values, thunkAPI) => {
+      try {
+        console.log(values)
+        const result = await apiService.get_apis_by_user_id(values);
+        return result;
+      } catch (error) {
+        console.log(error);
+        return thunkAPI.rejectWithValue({});
+      }
+    }
+  );
+
 const initialState = {
 
 };

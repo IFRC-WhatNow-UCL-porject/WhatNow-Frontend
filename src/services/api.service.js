@@ -74,11 +74,26 @@ const delete_api = async (values) => {
         });
 }
 
+const get_apis_by_user_id = async (values) => {
+    updateToken();
+    return await axios.post(API_URL + "/get_apis_by_user_id", values, { headers: { "Authorization": `Bearer ${token}` } })
+        .then((response) => {
+            console.log(response.data)
+            const data = response.data;
+            return data;
+        }).catch((error) => {
+            console.log(error.response.data)
+            const response = error.response.data;
+            return response;
+        });
+}
+
 const apiService = {
     get_apis,
     add_api,
     update_api,
-    delete_api
+    delete_api,
+    get_apis_by_user_id
 };
   
 export default apiService;

@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import ApiHeader from '../../../Component/API/Header';
 import KeysGrid from '../../../Component/API/KeysGrid';
 
-import { get_apis } from '../../../store/features/api_user.slice';
+import { get_apis_by_user_id } from '../../../store/features/api_user.slice';
 
 const ApiPage = () => {
 
@@ -16,7 +16,7 @@ const ApiPage = () => {
   const [apis, setApis] = useState([]);
 
   React.useEffect(() => {
-    dispatch(get_apis()).then((response) => {
+    dispatch(get_apis_by_user_id({ user_id: localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")).uuid : null })).then((response) => {
       const result = response.payload;
       if (result.status) {
         if (result.data.length > 0) {
