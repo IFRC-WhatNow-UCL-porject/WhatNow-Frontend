@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Paper, Typography, Grid, Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField, Collapse, Alert, FormHelperText } from '@mui/material';
 
-import { get_apis, add_api } from '../../store/features/api_user.slice';
+import { get_apis_by_user_id, add_api } from '../../store/features/api_user.slice';
 
 const ApiHeader = () => {
 
@@ -13,7 +13,7 @@ const ApiHeader = () => {
     const [apiNames, setApiNames] = useState([]);
   
     React.useEffect(() => {
-      dispatch(get_apis()).then((response) => {
+      dispatch(get_apis_by_user_id({ user_id: localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")).uuid : null })).then((response) => {
         const result = response.payload;
         if (result.status) {
           if (result.data.length > 0) {
