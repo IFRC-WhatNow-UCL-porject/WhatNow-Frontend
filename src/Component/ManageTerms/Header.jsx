@@ -6,7 +6,9 @@ import { publish_term } from '../../store/features/gdpc_admin.slice';
 
 import LoadingButton from '../LoadingButton';
 
-const TermHeader = ({text, latestVersion}) => {
+const TermHeader = ({text, latestVersion, isCurrent}) => {
+
+console.log(isCurrent, 'isCurrent')
 
   const dispatch = useDispatch();
 
@@ -97,7 +99,7 @@ const TermHeader = ({text, latestVersion}) => {
                     <Grid item xs={12} md={6}>
                         <Grid container spacing={2} justifyContent="flex-end">
                             <Grid item xs={6} md={4}>
-                            <Button variant="contained" color="secondary" sx={{fontWeight: 'bold'}} onClick={() => handleOpenPublishDialog()} disabled={text == ''}>
+                            <Button variant="contained" color="secondary" sx={{fontWeight: 'bold'}} onClick={() => handleOpenPublishDialog()} disabled={(text == '') || !isCurrent}>
                                 Publis New Version
                             </Button>
                             </Grid>

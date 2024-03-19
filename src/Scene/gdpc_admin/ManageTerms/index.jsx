@@ -90,7 +90,7 @@ const CustomPaperComponent = () => {
             }
         />
         <div style={{ marginTop: '16px' }}></div>
-        <TermHeader text={text} latestVersion={latestVersion}/>
+        <TermHeader text={text} latestVersion={latestVersion} isCurrent={selectedVersion == 'current'} />
         <div style={{ marginTop: '16px' }}></div>
         <Paper style={{ padding: '20px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
