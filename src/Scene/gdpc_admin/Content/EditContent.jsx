@@ -204,7 +204,7 @@ const DynamicInputComponent = () => {
       <Header
         submit={handleSubmission} 
         text={"Edit content"} 
-        disabled={title === '' || description === '' || url === '' || titleError || descriptionError || urlError}
+        disabled={title === null || description === null || url === null || titleError || descriptionError || urlError}
       />
       <Paper sx={{ padding: 2, marginBottom: 5 }}>
         <Box sx={{ padding: 2 }}>
