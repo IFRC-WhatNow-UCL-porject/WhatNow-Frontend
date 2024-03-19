@@ -124,18 +124,18 @@ const DynamicInputComponent = () => {
 
   const handleTitleChange = (event) => {
     if (event.target.value === '') {
-      setTitleError(false);
-    } else {
       setTitleError(true);
+    } else {
+      setTitleError(false);
     }
     setTitle(event.target.value);
   };
 
   const handleDescrptionChange = (event) => {
     if (event.target.value === '') {
-      setDescriptionError(false);
-    } else {
       setDescriptionError(true);
+    } else {
+      setDescriptionError(false);
     }
     setDescription(event.target.value);
   };
