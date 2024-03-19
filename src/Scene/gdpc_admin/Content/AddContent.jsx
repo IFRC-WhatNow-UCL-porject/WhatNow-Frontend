@@ -143,7 +143,7 @@ const DynamicInputComponent = () => {
     }
     try {
       dispatch(add_content(data));
-      window.location.href = '/ns_editor/content';
+      window.location.href = '/gdpc_admin/content';
     } catch (err) {
       console.log(err);
     }
@@ -155,8 +155,8 @@ const DynamicInputComponent = () => {
         path={
           [
             { path: '/', name: 'Home' },
-            { path: '/ns_editor/content', name: 'Content' },
-            { path: '/ns_editor/content/addcontent', name: 'Add Content' }
+            { path: '/gdpc_admin/content', name: 'Content' },
+            { path: '/gdpc_admin/content/addcontent', name: 'Add Content' }
           ]
         }
       />

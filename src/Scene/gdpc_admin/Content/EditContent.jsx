@@ -179,7 +179,7 @@ const DynamicInputComponent = () => {
         if (response.payload.status) {
           dispatch(update_content_message(message_update_data)).then((response) => {
             if (response.payload.status) {
-              window.location.href = '/ns_editor/content';
+              window.location.href = '/gdpc_admin/content';
             }
           });
         }
@@ -195,8 +195,8 @@ const DynamicInputComponent = () => {
         path={
           [
             { path: '/', name: 'Home' },
-            { path: '/ns_editor/content', name: 'Content' },
-            { path: '/ns_editor/content/editcontent', name: 'Edit Content' }
+            { path: '/gdpc_admin/content', name: 'Content' },
+            { path: '/gdpc_admin/content/editcontent', name: 'Edit Content' }
           ]
         }
       />
