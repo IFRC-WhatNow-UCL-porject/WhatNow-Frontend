@@ -141,7 +141,7 @@ const ApiHeader = () => {
                     <Grid item xs={12} md={6}>
                         <Grid container spacing={2} justifyContent="flex-end">
                             <Grid item xs={7} md={5}>
-                                <Button variant="contained" color="primary" fullWidth sx={{ fontWeight: 'bold' }}>VIEW TERMS AND CONDITIONS</Button>
+                                <Button variant="contained" color="primary" fullWidth sx={{ fontWeight: 'bold' }} onClick={() => window.location.href = "/terms_and_conditions"}>VIEW TERMS AND CONDITIONS</Button>
                             </Grid>
                             <Grid item xs={6} md={4}>
                                 <Button variant="contained" color="secondary" fullWidth sx={{ fontWeight: 'bold' }} onClick={() => handleOpenAddDialog()}>BUILD NEW APP</Button>
