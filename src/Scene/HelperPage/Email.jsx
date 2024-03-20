@@ -28,7 +28,7 @@ const Token = () => {
                 if (result.status) {
                     navigate('/login');
                 } else {
-                    localStorage.setItem('error', "Token is invalid or expired");
+                    localStorage.setItem('fail', "Token is invalid or expired");
                     window.location.href = '/';
                 }
             });
@@ -38,7 +38,7 @@ const Token = () => {
                 if (result.status) {
                     navigate('/reset_password');
                 } else {
-                    localStorage.setItem('error', "Token is invalid or expired");
+                    localStorage.setItem('fail', "Token is invalid or expired");
                     window.location.href = '/';
                 }
             });
