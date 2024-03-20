@@ -219,7 +219,7 @@ const LoginComponent = () => {
                             error={emailError}
                         />
                         <FormHelperText style={{ fontSize: '1rem', color: emailError ? 'red' : 'inherit' }}>
-                            {emailError ? 'incorrect email format, example: example@domain.com' : ''}
+                            {emailError ? 'incorrect email format, example: test@test.com' : ''}
                         </FormHelperText>
                         <Typography variant="h5" align="left" sx={{mt:3, fontWeight: 'bold'}}>WHERE WILL THIS API BE USED?</Typography>
                         <TextField
