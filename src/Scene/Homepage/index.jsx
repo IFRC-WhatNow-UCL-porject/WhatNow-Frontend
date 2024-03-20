@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Grid, Paper, Tabs, Tab, Divider, styled } from '@mui/material';
+import { Box, Typography, Grid, Paper, Tabs, Tab, Divider, styled, Container } from '@mui/material';
 import { useState } from 'react';
 import { Helmet } from 'react-helmet';
 
@@ -53,7 +53,7 @@ const HomePage = () => {
   };
 
   return (
-    <Box>
+  <Container maxWidth={false} sx={{ minHeight: '80vh', width: 1800 }}>
       <Helmet>
         <title>WhatNow Service</title>
       </Helmet>
@@ -96,7 +96,7 @@ const HomePage = () => {
         </Typography>
         <Grid container spacing={2} my={2} justifyContent="center">
           {tabs.map((tab, index) => (
-            <Grid item xs={3} key={index} sx={{ maxWidth: '50px' }}>
+            <Grid item xs={3} key={index}>
               <Paper
                 elevation={0}
                 sx={{ padding: 2, textAlign: 'center', cursor: 'pointer', '&:hover': { boxShadow: 6 } }}
@@ -186,7 +186,7 @@ const HomePage = () => {
               }}/>
         </Box>
       </Box>
-    </Box>
+  </Container>
   );
 };
 
