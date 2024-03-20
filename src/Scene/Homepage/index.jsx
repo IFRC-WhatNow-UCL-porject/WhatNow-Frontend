@@ -53,7 +53,7 @@ const HomePage = () => {
   };
 
   return (
-  <Container maxWidth={false} sx={{ minHeight: '80vh', width: 1800 }}>
+  <Container maxWidth={false} sx={{ minHeight: '80vh', width: 1600 }}>
       <Helmet>
         <title>WhatNow Service</title>
       </Helmet>
