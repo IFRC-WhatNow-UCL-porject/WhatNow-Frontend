@@ -292,7 +292,7 @@ const LoginComponent = () => {
                             style={{ fontWeight: 'bold', marginTop: '20px', marginBottom: '20px' }}
                             fullWidth
                             onClick={() => handleRegister()}
-                            disabled={passwordError || confirmPasswordError || emailError || !firstname || !lastname || !location || !organization || !industryType || !email || !usage}
+                            disabled={passwordError || confirmPasswordError || emailError || !firstname || !lastname || !location || !organization || !industryType || !email || !usage || !password || !confirmPassword}
                         >
                             SIGN UP
                         </Button>
