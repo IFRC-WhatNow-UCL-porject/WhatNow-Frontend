@@ -25,35 +25,48 @@ export const theme = createTheme({
   typography: {
     fontFamily: ["system-ui", "sans-serif"].join(","),
     fontSize: 12,
+    fontWeight: 'bold',
     h1: {
       fontFamily: ["system-ui", "sans-serif"].join(","),
       fontSize: 50,
       color: "#000000",
+      fontWeight: 'bold',
+
     },
     h2: {
       fontFamily: ["system-ui", "sans-serif"].join(","),
       fontSize: 32,
       color: "#000000",
+      fontWeight: 'bold',
+
     },
     h3: {
       fontFamily: ["system-ui", "sans-serif"].join(","),
       fontSize: 20,
       color: "#000000",
+      fontWeight: 'bold',
+
     },
     h4: {
       fontFamily: ["system-ui", "sans-serif"].join(","),
       fontSize: 20,
       color: "#000000",
+      fontWeight: 'bold',
+
     },
     h5: {
       fontFamily: ["system-ui", "sans-serif"].join(","),
       fontSize: 16,
       color: "#000000",
+      fontWeight: 'bold',
+
     },
     h6: {
       fontFamily: ["system-ui", "sans-serif"].join(","),
       fontSize: 14,
       color: "#000000",
+      fontWeight: 'bold',
+
     },
   },
   components: {
@@ -137,6 +150,14 @@ export const theme = createTheme({
           },
         },
       },
-    }
+    },
+    MuiTableCell: {
+      styleOverrides: {
+        root: {
+          fontWeight: 'bold',
+          fontSize: 14,
+        },
+      },
+    },
   }
 });
