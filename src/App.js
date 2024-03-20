@@ -34,6 +34,7 @@ function App() {
                 <Route path='/error' element={<Suspense fallback={<div>waiting</div>}><Error></Error></Suspense>} />
                 <Route path='/terms_and_conditions' element={<Suspense fallback={<div>waiting</div>}><Term></Term></Suspense>} />
                 <Route path='/activate' element={<Suspense fallback={<div>waiting</div>}><Email></Email></Suspense>} />
+                <Route path='/reset' element={<Suspense fallback={<div>waiting</div>}><Email></Email></Suspense>} />
                 <Route path='/reset_password' element={<Suspense fallback={<div>waiting</div>}><ResetPassword></ResetPassword></Suspense>} />
                 <Route path='/forget_password' element={<Suspense fallback={<div>waiting</div>}><ForgetPassword></ForgetPassword></Suspense>} />
 

@@ -23,7 +23,7 @@ const Token = () => {
             navigate('/');
         }
         if (tokenAct) {
-            dispatch(check_email_token({ token: tokenAct, type: tokenTypes.VERIFY_EMAIL })).then((response) => {
+            dispatch(check_email_token({ token: tokenAct, type: tokenTypes.tokenTypes.VERIFY_EMAIL })).then((response) => {
                 const result = response.payload;
                 if (result.status) {
                     navigate('/login');
@@ -33,7 +33,7 @@ const Token = () => {
                 }
             });
         } else if (tokenPass) {
-            dispatch(check_email_token({ token: tokenPass, type: tokenTypes.RESET_PASSWORD })).then((response) => {
+            dispatch(check_email_token({ token: tokenPass, type: tokenTypes.tokenTypes.RESET_PASSWORD })).then((response) => {
                 const result = response.payload;
                 if (result.status) {
                     navigate('/reset_password');
