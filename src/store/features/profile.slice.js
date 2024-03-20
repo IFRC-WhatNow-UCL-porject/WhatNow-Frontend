@@ -67,6 +67,19 @@ export const getUserRole = createAsyncThunk(
     }
 );
 
+export const update_term_agree = createAsyncThunk(
+    "profile/updateTermAgree",
+    async (values, thunkAPI) => {
+        try {
+            const response = await ProfileService.update_term_agree(values);
+            return response;
+        } catch (error) {
+            console.log(error);
+            return thunkAPI.rejectWithValue({});
+        }
+    }
+);
+
 
 const initialState = {
 

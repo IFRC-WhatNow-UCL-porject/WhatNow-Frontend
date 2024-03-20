@@ -89,12 +89,27 @@ const get_user_role = async (values) => {
   });
 }
 
+const update_term_agree = async (values) => {
+  updateToken();
+  return await axios.post(API_URL + "/update_term_agree", values, { headers: { "Authorization": `Bearer ${token}` } })
+  .then((response) => {
+    console.log(response.data)
+    const data = response.data;
+    return data;
+  }).catch((error) => {
+    console.log(error.response.data)
+    const response = error.response.data;
+    return response;
+  });
+}
+
   const ProfileService = {
     change_password,
     get_user_info,
     update_user_info,
     get_user_society,
-    get_user_role
+    get_user_role,
+    update_term_agree
   };
   
   export default ProfileService;

@@ -27,6 +27,11 @@ const Waiting = ({ component, access }) => {
 
     React.useEffect(() => {
         try {
+            const agree = localStorage.getItem((localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")).email : '') + "_agree");
+            if (!agree) {
+                localStorage.setItem("fail", "You have to agree to the terms and conditions first.")
+                navigate("/terms_and_conditions")
+            }
             dispatch(checkLogStatus()).then((response) => {
                 if (!response.payload.status) {
                     localStorage.removeItem("access_token");
