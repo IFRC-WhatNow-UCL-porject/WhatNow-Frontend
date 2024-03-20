@@ -41,6 +41,14 @@ export const ForgetPassword = lazy(
     async()=>await import('./Scene/HelperPage/ForgetPassword')
 );
 
+export const APIGuid = lazy(
+    async()=>await import('./Scene/Doc/API/index')
+);
+
+export const SignUpGuide = lazy(
+    async()=>await import('./Scene/Doc/SignUp/index')
+);
+
 // api_user
 
 export const ApiPage = lazy(

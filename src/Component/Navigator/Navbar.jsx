@@ -45,11 +45,13 @@ const gdpc_admin_dashboard = {
 }
 
 const ns_admin_doc = {
-  'USER GUIDE': '/user_guide'
+  'API DOCUMENT': '/api_document',
+  'SIGN UP GUIDE': '/sign_up_guide'
 };
 
 const ns_editor_doc = {
-  'USER GUIDE': '/user_guide'
+  'API DOCUMENT': '/api_document',
+  'SIGN UP GUIDE': '/sign_up_guide'
 }
 
 const api_user_doc = {
@@ -63,7 +65,8 @@ const reviewer_doc = {
 };
 
 const gdpc_admin_doc = {
-  'USER GUIDE': '/user_guide'
+  'API DOCUMENT': '/api_document',
+  'SIGN UP GUIDE': '/sign_up_guide'
 };
 
 const Navbar = (props) => {

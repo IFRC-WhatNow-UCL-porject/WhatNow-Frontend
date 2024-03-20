@@ -3,7 +3,7 @@ import { Box, CssBaseline, ThemeProvider } from "@mui/material";
 import { Suspense } from 'react';
 
 import { theme } from './theme';
-import { Login, Register, Home, Profile, Error, Messages, Term, Email, ResetPassword, ForgetPassword } from './load';
+import { Login, Register, Home, Profile, Error, Messages, Term, Email, ResetPassword, ForgetPassword, SignUpGuide, UserGuide, APIGuid } from './load';
 import { NsContent, NsAuditLog, NsAddContent, NsEditContent, NsRegion } from './load';
 import { NseAddContent, NseAuditLog, NseContent, NseEditContent, NseRegion } from './load';
 import { ApiPage } from './load';
@@ -37,6 +37,8 @@ function App() {
                 <Route path='/reset' element={<Suspense fallback={<div>waiting</div>}><Email></Email></Suspense>} />
                 <Route path='/reset_password' element={<Suspense fallback={<div>waiting</div>}><ResetPassword></ResetPassword></Suspense>} />
                 <Route path='/forget_password' element={<Suspense fallback={<div>waiting</div>}><ForgetPassword></ForgetPassword></Suspense>} />
+                <Route path='/sign_up_guide' element={<Suspense fallback={<div>waiting</div>}><SignUpGuide></SignUpGuide></Suspense>} />
+                <Route path='/api_document' element={<Suspense fallback={<div>waiting</div>}><APIGuid></APIGuid></Suspense>} />
 
                 <Route path="/ns_admin/content" element={<Waiting component={() => <NsContent></NsContent>} access={userRoles.NS_ADMIN} ></Waiting>} />
                 <Route path="/ns_admin/content/addcontent" element={<Waiting component={() => <NsAddContent></NsAddContent>} access={userRoles.NS_ADMIN} ></Waiting>} />
