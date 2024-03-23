@@ -37,7 +37,7 @@ const PicGenerator = ({handleSetRef, content, message, index}) => {
       <Paper style={{ padding: '20px' }}>
         <Grid container spacing={2} alignItems="center">
           <Grid item>
-            123
+            <img src={process.env.PUBLIC_URL + '/icons/' + content.content_type.replaceAll('_', '-').toLowerCase() + '@3x.png'} alt="content" style={{ width: '25%' }} />
           </Grid>
           <Grid item>
             <Typography variant="h6" gutterBottom style={{ fontWeight: 'bold' }}>
