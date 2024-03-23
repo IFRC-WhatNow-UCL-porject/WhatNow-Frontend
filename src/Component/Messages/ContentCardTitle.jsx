@@ -50,6 +50,9 @@ const ContentCardTitle = ({content}) => {
   return (
     <Paper style={{ padding: '20px', marginBottom: '10px' }} elevation={3}>
       <Grid container alignItems="center">
+        <Grid item xs={1}>
+            <img src={process.env.PUBLIC_URL + '/icons/' + content.content_type.replaceAll('_', '-').toLowerCase() + '@3x.png'} alt="content" style={{ width: '50%' }} />
+        </Grid>
         <Grid item xs={8}>
           <Typography variant="h6">{content.title}</Typography>
           <Typography>{content.description}</Typography>
