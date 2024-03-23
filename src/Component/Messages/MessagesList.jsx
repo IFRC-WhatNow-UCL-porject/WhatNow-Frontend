@@ -35,16 +35,27 @@ const MessagesList = ({ content, society }) => {
 
     const [selectValueHazard, setSelectValueHazard] = React.useState('');
     const [contentList, setContentList] = React.useState([]);
+    const [displayContent, setDisplayContent] = React.useState([]);
 
     React.useEffect(() => {
         if (content.length > 0) {
             setContentList(content);
+            setDisplayContent(content);
         }
     }, [content]);
 
     const handleSelectChangeHazard = (event) => {
         setSelectValueHazard(event.target.value);
     }
+
+    React.useEffect(() => {
+        if (selectValueHazard !== '') {
+            let temp = contentList.filter((content) => content.uuid === selectValueHazard);
+            setDisplayContent(temp);
+        } else {
+            setDisplayContent(contentList);
+        }
+    }, [selectValueHazard]);
 
     return (
         <>
@@ -70,7 +81,7 @@ const MessagesList = ({ content, society }) => {
             </Grid>
           </Grid>
 
-          {contentList.map((content, index) => {
+          {displayContent.map((content, index) => {
             return <ContentCardTitle key={index} content={content} />
           })}
         </Paper>
