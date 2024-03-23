@@ -50,9 +50,6 @@ const ContentCardTitle = ({content}) => {
   return (
     <Paper style={{ padding: '20px', marginBottom: '10px' }} elevation={3}>
       <Grid container alignItems="center">
-        <Grid item xs={1}>
-            <Typography variant="h5">1</Typography>
-        </Grid>
         <Grid item xs={8}>
           <Typography variant="h6">{content.title}</Typography>
           <Typography>{content.description}</Typography>

@@ -73,30 +73,6 @@ const MessagesList = ({ content, society }) => {
           {contentList.map((content, index) => {
             return <ContentCardTitle key={index} content={content} />
           })}
-  
-          {/* pagination*/}
-          {/* <Grid container spacing={2} alignItems="center" justifyContent="space-between">
-            <Grid item>
-              <Select
-                value={rowsPerPage}
-                onChange={handleRowsPerPageChange}
-                label="Rows per page"
-              >
-                {[5, 10, 15].map((option) => (
-                  <MenuItem key={option} value={option}>
-                    {option}
-                  </MenuItem>
-                ))}
-              </Select>
-            </Grid>
-            <Grid item>
-              <Pagination
-                count={Math.ceil(totalRows / rowsPerPage)}
-                page={page}
-                onChange={handlePageChange}
-              />
-            </Grid>
-          </Grid> */}
         </Paper>
       </>
     );
