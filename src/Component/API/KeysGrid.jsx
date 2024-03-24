@@ -3,7 +3,7 @@ import { Paper, Typography, Divider, Grid } from '@mui/material';
 
 import KeyCard from './KeyCard';
 
-const MyPaperComponent = ({apps}) => {
+const KeyGrid = ({apps}) => {
 
   const app_names = apps.map((app) => app.name)
 
@@ -27,5 +27,5 @@ const MyPaperComponent = ({apps}) => {
   );
 };
 
-export default MyPaperComponent;
+export default KeyGrid;
 
