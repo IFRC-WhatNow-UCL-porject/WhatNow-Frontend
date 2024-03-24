@@ -5,7 +5,7 @@ import CloseIcon from '@mui/icons-material/Close';
 
 import { get_all_societies } from '../../store/features/gdpc_admin.slice';
 
-const MyPaperComponent = ({user_id}) => {
+const SocietyPaper = ({user_id}) => {
 
   const dispatch = useDispatch();
   const [society, setSociety] = useState([]);
@@ -100,4 +100,4 @@ const MyPaperComponent = ({user_id}) => {
   );
 };
 
-export default MyPaperComponent;
+export default SocietyPaper;
