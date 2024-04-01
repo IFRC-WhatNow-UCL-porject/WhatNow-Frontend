@@ -60,7 +60,7 @@ const PicGenerator = ({handleSetRef, content, message, index}) => {
         <div>
           {message.map((item, index) => (
             <Typography key={index} style={{ textIndent: '20px', marginTop: '10px' }}>
-              {index}. {item.content}
+              {index+1}. {item.content}
             </Typography>
           ))}
         </div>
